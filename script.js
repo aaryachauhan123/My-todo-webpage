@@ -17,7 +17,15 @@ const li = document.createElement('li');
 //text of the todo
 const textspan = document.createElement('span');
 textspan.textContent = todo.text;
-
+    
+textspan.addEventListener('dblclick',()=>{      //For editing the text of the todo with dbl-click.
+       const newText = prompt('Edit todo',task.text);
+       if(newText !== null){
+        task.text = newText.trim();
+        textspan.textContent = task.text;
+        savenode();
+       }
+    })
 
 //checkbox
 const cbox = document.createElement('input');
